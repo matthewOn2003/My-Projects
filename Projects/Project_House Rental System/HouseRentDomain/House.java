@@ -65,10 +65,7 @@ public class House {
     public void setStatus(String status) {
         this.status = status;
     }
-    //至此，用对象保存房屋的信息(6个属性)代码已完成
 
-    //为了方便输出，重写一个toString方法把属性组合在一起
-    //编号  房主名  电话  地址  租金  状态(已/未出租)
     @Override
     public String toString() {
         return id + "\t\t" + name + "\t\t" + phoneNo + "\t\t" + address + "\t\t" + rent + "\t\t" + status;

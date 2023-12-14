@@ -4,31 +4,31 @@ import src.Project_RentHouseSys.HouseRentView.HouseRentView;
 
 public class HouseRentApp {
     public static void main(String[] args) {
-        /* HouseView类
-        1. 显示页面
-        2. 接收用户输入
-        3. 调用HouseService完成对房屋信息的操作
+        /* HouseView class
+        1. display page
+        2. Receive user input
+        3. Call HouseService to complete the operation of the house information.
+         /*
+
+        /* HouseService class
+        1. Respond to the call of HouseView. 2.
+        2. complete the operation of the house information (CRUD)
          */
 
-        /*HouseService类
-        1. 响应HouseView的调用
-        2. 完成对房屋信息的操作(CRUD)
+        /*HouseDomain class
+        1. a House object represents the information of a house. 2.
+        2. Since we haven't learned about databases yet, we'll use an array to store the house information.
          */
 
-        /*HouseDomain类
-        1. 一个House对象代表一个房屋的信息
-        2. 因还没学数据库，就用数组保存房屋信息
-         */
-
-        /*Utily类
-        1. 工具类，获取用户的输入
+        /*Utily class
+        1. Utility class to get user's input
 
          */
 
         /*HouseRentApp
-        1. main方法，程序入口
-        2. 创建house对象，显示主菜单
-        3. 我把它放在一个包，看起来整齐
+        1. main method, program entry
+        2. create house object, show main menu
+        3. I put it in a package, looks neat
          */
 
         new HouseRentView().mainMenu();
