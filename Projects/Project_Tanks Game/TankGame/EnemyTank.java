@@ -266,9 +266,14 @@ public class EnemyTank extends Tank implements Runnable {
 
     @Override
     public void run() {
-        //做多线程，生命周期必须有 (开始-运行-销毁)
+        // Multi-thread life cycle (start-run-close)
         while (true) { //运行
-            if (isLive && shots.size() == 0) { //敌人坦克存货，且子弹空了
+            double random = Math.random();
+            double shotRate = 0.8; // more near to 0 or 1, less rate of shot
+
+
+            // enemyTank is live, shots have run out, random match shotRate
+            if (isLive && shots.size() == 0 && random > shotRate) {
                 switch (getDirect()) {
                     case 0:
                         shot = new Shot(getX()+27, getY(), 0);

@@ -230,11 +230,12 @@ public class MyPanel extends JPanel implements KeyListener, Runnable {
             case 2: // 下
                 if (s.x > tank.getX() && s.x < tank.getX()+40
                         && s.y > tank.getY() && s.y < tank.getY()+60) {
+                    System.out.println("hit tank funcion (if 0, 2)");
                     s.isLive = false; // bullet destruction
                     tank.isLive = false; // Enemy tanks destroyed
-                    Recorder.addTotal_enemy();
 
-                    if (tank instanceof EnemyTank) { // Avoid counting hero defeats
+                    if (tank instanceof EnemyTank && !tank.isLive) { // Avoid counting hero defeats
+                        Recorder.addTotal_enemy();
                     }
 
                     System.out.println("Hit the tank - bullet destroyed");
@@ -249,10 +250,13 @@ public class MyPanel extends JPanel implements KeyListener, Runnable {
             case 3:
                 if (s.x > tank.getX() && s.x < tank.getX()+60
                         && s.y > tank.getY()+10 && s.y < tank.getY()+50) {
+                    System.out.println("hit tank funcion (if 1, 3)");
+
                     s.isLive = false; // bullet destruction
                     tank.isLive = false; // Enemy tanks destroyed
 
-                    if (tank instanceof EnemyTank) { // Avoid counting hero defeats
+
+                    if (tank instanceof EnemyTank && !tank.isLive) { // Avoid counting hero defeats
                         Recorder.addTotal_enemy();
                     }
 
@@ -269,6 +273,7 @@ public class MyPanel extends JPanel implements KeyListener, Runnable {
 
 
     public void isHitEnemy() {
+//        System.out.println("isHitEnemy function...");
         for (int j = 0; j < hero.shots.size(); j++) { // Take the bullet out from the set and judge
             Shot shot = hero.shots.get(j);
 
@@ -276,7 +281,7 @@ public class MyPanel extends JPanel implements KeyListener, Runnable {
                 for (int i = 0; i < enemyTanks.size(); i++) {
                     EnemyTank enemyTank = enemyTanks.get(i);
                     hitTank(shot, enemyTank);
-                    System.out.println("x=" + shot.x + ", y=" + shot.y);
+//                    System.out.println("x=" + shot.x + ", y=" + shot.y);
                 }
             }
         }
