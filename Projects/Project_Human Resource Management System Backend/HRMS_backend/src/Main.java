@@ -40,6 +40,7 @@ public class Main {
 
     public static void startApp() throws Exception{
         Connection connection = DAO.getConnection();
+        DAO.initProgram();
         LoginPage.login();
         connection.close();
     }

@@ -44,7 +44,7 @@ public class Player extends Entity {
     
         worldX = gp.tileSize * 23;
         worldY = gp.tileSize * 21;
-        speed = 10;
+        speed = 5;
         direction = "down";
         
     }
@@ -53,9 +53,9 @@ public class Player extends Entity {
     public void getPlayerImage() {
         
         // Specify the file path
-        String directoryPath = "C:\\Users\\Trainee1\\Desktop\\"
-                + "TestApp05\\java projects\\Project_Treasure Hunting Game\\"
-                + "TreasureHuntingGame\\res\\player\\";
+        String directoryPath = "C:\\Users\\Asus\\OneDrive\\" +
+                "Desktop\\My-Projects\\Projects\\Project_Treasure Hunting Game\\" +
+                "TreasureHuntingGame\\res\\player\\";
         
         String up1FilePath = directoryPath + "boy_up1.png";
         String up2FilePath = directoryPath + "boy_up2.png";

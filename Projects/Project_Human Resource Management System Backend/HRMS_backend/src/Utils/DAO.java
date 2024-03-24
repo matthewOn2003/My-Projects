@@ -43,4 +43,8 @@ public class DAO {
         return connectionInstance;
 
     }
+
+    public static void initProgram() {
+
+    }
 }

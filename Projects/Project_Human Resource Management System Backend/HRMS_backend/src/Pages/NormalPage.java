@@ -33,6 +33,7 @@ public class NormalPage {
                             "2. Edit Personal Info\n" +
                             "3. Application Change Position\n" +
                             "4. Notification\n" +
+                            "5. Attendance\n" +
                             "0. Log out\n" +
                             "-1. exit program\n"
             );
@@ -67,6 +68,11 @@ public class NormalPage {
 
                     case 4:
                         Notification.printPersonalNotifications(employeeId);
+                        break;
+
+                    case 5:
+                        System.out.println("Attendance");
+
                         break;
 
                     case 0:
