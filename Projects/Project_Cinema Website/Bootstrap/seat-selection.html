@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seat</title>
+
+    <!-- Link Bootstrap's CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+</head>
+
+<body>
+    
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="javascript:void()">Logo</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+
+                <ul class="navbar-nav border border-white p-0 mx-5 ">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="javascript:void(0)">Movies</a>
+                    </li>
+        
+                    <li class="nav-item mx-3 ">
+                        <a class="nav-link text-white" href="javascript:void(0)">Cinemas</a>
+                    </li>
+        
+                    <li class="nav-item mx-3 ">
+                        <a class="nav-link text-white" href="javascript:void(0)">Food</a>
+                    </li>
+        
+                    <li class="nav-item mx-3 ">
+                        <a class="nav-link text-white" href="javascript:void(0)">Reward</a>
+                    </li>
+    
+                </ul>
+    
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-primary" type="button">Search</button>
+                </form>
+
+            </div>
+
+        </div>
+    </nav>
+    
+
+
+    <!-- seat-selected -->
+    <div 
+        class="
+            d-flex 
+            flex-row 
+            justify-content-between 
+            rounded-top-5 
+            bg-dark 
+            fixed-bottom 
+            px-5 
+            py-4
+            w-75
+            mx-auto">
+        <div class="ms-2 fs-5">
+            <div class="text-light my-2">Seat Selection</div>
+            <div class="text-warning my-2">A01, A02, B03</div>
+        </div>
+        <button type="button" class="btn btn-primary rounded-3 px-5 me-2 fs-5 bg-warning border-0 text-dark">
+            <strong>Confirm</strong> - 3 ticket(s)
+        </button>
+    </div>
+
+
+
+
+    <!-- movie info -->
+    <section class="bg-warning" style="height: 25vh;">
+        <div class="container">
+            movie info
+        </div>
+    </section>
+    
+
+
+    
+    
+    
+    <!-- choose seats -->
+    <section style="background-color: black; min-height: 90vh;">
+        <div class="container p-5">
+            <div class="bg-white" style="height: 200px;">
+                SCREEN
+            </div>
+            
+
+
+            <div class="py-4 text-white">
+
+                <!-- row A -->
+                <div class="d-flex justify-content-between mx-auto align-items-center my-3 w-75">
+                    <span class="me-5">A</span>
+
+                    <!-- seats -->
+                    <span style="min-width: 50%; max-width: 80%;">
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A01
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A02
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A03
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A04
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A05
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A06
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A07
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A08
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A09
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A10
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A11
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A12
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A13
+                        </span>
+
+                    </span>
+
+                    <span class="ms-5">A</span>
+                </div>
+
+                <!-- row B -->
+                <div class="d-flex justify-content-between mx-auto align-items-center my-3 w-75">
+                    <span class="me-5">B</span>
+
+                    <!-- seats -->
+                    <span style="min-width: 50%; max-width: 80%;">
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B01
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B02
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B03
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B04
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B05
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B06
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B07
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B08
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B09
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B10
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B11
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B12
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B13
+                        </span>
+
+                    </span>
+
+                    <span class="ms-5">B</span>
+                </div>
+
+                <!-- row A -->
+                <div class="d-flex justify-content-between mx-auto align-items-center my-3 w-75">
+                    <span class="me-5">A</span>
+
+                    <!-- seats -->
+                    <span style="min-width: 50%; max-width: 80%;">
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A01
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A02
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A03
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A04
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A05
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A06
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A07
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A08
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A09
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A10
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A11
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A12
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A13
+                        </span>
+
+                    </span>
+
+                    <span class="ms-5">A</span>
+                </div>
+
+                <!-- row B -->
+                <div class="d-flex justify-content-between mx-auto align-items-center my-3 w-75">
+                    <span class="me-5">B</span>
+
+                    <!-- seats -->
+                    <span style="min-width: 50%; max-width: 80%;">
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B01
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B02
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B03
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B04
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B05
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B06
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B07
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B08
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B09
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B10
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B11
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B12
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B13
+                        </span>
+
+                    </span>
+
+                    <span class="ms-5">B</span>
+                </div>
+
+                <!-- row A -->
+                <div class="d-flex justify-content-between mx-auto align-items-center my-3 w-75">
+                    <span class="me-5">A</span>
+
+                    <!-- seats -->
+                    <span style="min-width: 50%; max-width: 80%;">
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A01
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A02
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A03
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A04
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A05
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A06
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A07
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A08
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A09
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A10
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A11
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A12
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A13
+                        </span>
+
+                    </span>
+
+                    <span class="ms-5">A</span>
+                </div>
+
+                <!-- row B -->
+                <div class="d-flex justify-content-between mx-auto align-items-center my-3 w-75">
+                    <span class="me-5">B</span>
+
+                    <!-- seats -->
+                    <span style="min-width: 50%; max-width: 80%;">
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B01
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B02
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B03
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B04
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B05
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B06
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B07
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B08
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B09
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B10
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B11
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B12
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B13
+                        </span>
+
+                    </span>
+
+                    <span class="ms-5">B</span>
+                </div>
+
+                <!-- row A -->
+                <div class="d-flex justify-content-between mx-auto align-items-center my-3 w-75">
+                    <span class="me-5">A</span>
+
+                    <!-- seats -->
+                    <span style="min-width: 50%; max-width: 80%;">
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A01
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A02
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A03
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A04
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A05
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A06
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A07
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A08
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A09
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A10
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A11
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A12
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                A13
+                        </span>
+
+                    </span>
+
+                    <span class="ms-5">A</span>
+                </div>
+
+                <!-- row B -->
+                <div class="d-flex justify-content-between mx-auto align-items-center my-3 w-75">
+                    <span class="me-5">B</span>
+
+                    <!-- seats -->
+                    <span style="min-width: 50%; max-width: 80%;">
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B01
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B02
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B03
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B04
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B05
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B06
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B07
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B08
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B09
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B10
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B11
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B12
+                        </span>
+
+                        <span 
+                            class="d-inline-block bg-warning rounded-5 mx-1 text-center" 
+                            style="line-height: 40px; height: 40px; width: 40px;">
+                                B13
+                        </span>
+
+                    </span>
+
+                    <span class="ms-5">B</span>
+                </div>
+
+
+                
+
+                
+            </div>
+
+
+
+            <div class="d-flex mx-auto justify-content-center px-5 ">
+
+                <span class="border border-4 rounded-3 border-white p-3 mx-2 fs-5 text-white">
+                    <img 
+                        class="d-inline-block" 
+                        src="https://www.tutorialspoint.com/spring_boot/images/spring-boot-mini-logo.jpg"  
+                        alt=""
+                        height="32px"
+                        width="32px">
+                    <span>
+                        Normal
+                    </span>
+                </span>
+
+                <span class="border border-4 rounded-3 border-white p-3 mx-2 fs-5 text-white">
+                    <img 
+                        class="d-inline-block" 
+                        src="https://www.tutorialspoint.com/spring_boot/images/spring-boot-mini-logo.jpg"  
+                        alt=""
+                        height="32px"
+                        width="32px">
+                    <span>
+                        Selected
+                    </span>
+                </span>
+
+                <span class="border border-4 rounded-3 border-white p-3 mx-2 fs-5 text-white">
+                    <img 
+                        class="d-inline-block" 
+                        src="https://www.tutorialspoint.com/spring_boot/images/spring-boot-mini-logo.jpg"  
+                        alt=""
+                        height="32px"
+                        width="32px">
+                    <span>
+                        Occupied
+                    </span>
+                </span>
+
+                <span class="border border-4 rounded-3 border-white p-3 mx-2 fs-5 text-white">
+                    <img 
+                        class="d-inline-block" 
+                        src="https://www.tutorialspoint.com/spring_boot/images/spring-boot-mini-logo.jpg"  
+                        alt=""
+                        height="32px"
+                        width="32px">
+                    <span>
+                        Repair
+                    </span>
+                </span>
+                
+                <span class="border border-4 rounded-3 border-white p-3 mx-2 fs-5 text-white">
+                    <img 
+                        class="d-inline-block" 
+                        src="https://www.tutorialspoint.com/spring_boot/images/spring-boot-mini-logo.jpg"  
+                        alt=""
+                        height="32px"
+                        width="32px">
+                    <span>
+                        Wheel Chair
+                    </span>
+                </span>
+
+                
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+
+
+    <!-- footer -->
+    <footer style="background-color: #161616;">
+
+        <div class="container pt-5 text-white ">
+            
+            <div class="row">
+                <div class="col-sm-3">
+                    <ul class="nav flex-column ">
+                        <li class="nav-item">
+                            <a class="nav-link ps-0 text-white" href="">Link 1</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link ps-0 text-white" href="">Link 2</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link ps-0 text-white" href="">Link 3</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link ps-0 text-white" href="">Link 4</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link ps-0 text-white" href="">Link 5</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link ps-0 text-white" href="">Link 6</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3">2</div>
+
+                <div class="col-sm-3">3</div>
+
+                <div class="col-sm-3">
+                    <div class="footer-label">
+                        <h5>Golden Screen Cinemas Sdn Bhd</h5>
+                        <p class="font-xs fw-normal">195901000261 (3609-M)</p>
+                    </div>
+
+                    <div class="footer-item">
+                        <p class="">
+                            1, Jalan SS 22/19, Damansara Jaya,
+                            47400 Petaling Jaya, Selangor, Malaysia
+                        </p>
+
+                        <p class="">
+                            How do I contact GSC Customer Service?
+                        </p>
+
+                        <a class="btn btn-primary font-s text-dark fw-bold px-4" href="#">GET SUPPORT</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container py-3 pt-5">
+            <div class="row justify-content-between text-white">
+                <div class=" col-auto d-flex flex-column flex-sm-row align-items-sm-center">
+                    <div class="footer-label fw-bold mb-3 me-0 me-sm-3 mb-sm-0">
+                        Download App
+                    </div>
+
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="#" target="_blank" class="nav-link px-2">AAA</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" target="_blank" class="nav-link px-2">AAA</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" target="_blank" class="nav-link px-2">AAA</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" target="_blank" class="nav-link px-2">AAA</a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+
+                <div class="col-auto d-flex flex-column flex-sm-row align-items-sm-center">
+                    <div class="footer-label fw-bold mb-3 me-0 me-sm-3 mb-sm-0">
+                        Follow Us On
+                    </div>
+
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="#" target="_blank" class="nav-link px-2">AAA</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" target="_blank" class="nav-link px-2">AAA</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" target="_blank" class="nav-link px-2">AAA</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" target="_blank" class="nav-link px-2">AAA</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom border-top py-4 font-xs text-white">
+            copy right
+        </div>
+
+    </footer>
+
+
+
+</body>
+</html>

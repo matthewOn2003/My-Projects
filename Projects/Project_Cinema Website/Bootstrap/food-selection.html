@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- Link Bootstrap's CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</head>
+<body style="background-color: black;">
+    
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="javascript:void()">Logo</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+
+                <ul class="navbar-nav p-0 mx-5 ">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white" href="javascript:void(0)">Movies</a>
+                    </li>
+        
+                    <li class="nav-item mx-3 ">
+                        <a class="nav-link text-white" href="javascript:void(0)">Cinemas</a>
+                    </li>
+        
+                    <li class="nav-item mx-3 ">
+                        <a class="nav-link text-white" href="javascript:void(0)">Food</a>
+                    </li>
+        
+                    <li class="nav-item mx-3 ">
+                        <a class="nav-link text-white" href="javascript:void(0)">Reward</a>
+                    </li>
+    
+                </ul>
+    
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-primary" type="button">Search</button>
+                </form>
+
+            </div>
+
+        </div>
+    </nav>
+    
+
+
+
+    <!-- movie info -->
+    <section class="bg-warning" style="height: 25vh;">
+        <div class="container">
+            movie info
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Select Food -->
+    <section>
+        <div class="container border border-white px-0 py-5 text-white fs-6">
+            <ul class="d-flex flex-row justify-content-around border border-white" id="myTab" role="tablist">
+                
+                <li class="list-unstyled border border-warning" role="presentation">
+                    <button 
+                        class="nav-link px-5 py-2" 
+                        id="all-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#all-tab-pane" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="all-tab-pane" 
+                        aria-selected="true">
+                        All
+                    </button>
+                </li>
+
+                <li class="list-unstyled border border-warning" role="presentation">
+                    <button 
+                        class="nav-link px-5 py-2" 
+                        id="promotion-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#promotion-tab-pane" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="promotion-tab-pane" 
+                        aria-selected="true">
+                        Promotion
+                    </button>
+                </li>
+
+                <li class="list-unstyled border border-warning" role="presentation">
+                    <button 
+                        class="nav-link px-5 py-2" 
+                        id="hot-food-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#hot-food-tab-pane" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="hot-food-tab-pane" 
+                        aria-selected="true">
+                        hot-food
+                    </button>
+                </li>
+
+                <li class="list-unstyled border border-warning" role="presentation">
+                    <button 
+                        class="nav-link px-5 py-2" 
+                        id="popcorn-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#popcorn-tab-pane" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="popcorn-tab-pane" 
+                        aria-selected="true">
+                        popcorn
+                    </button>
+                </li>
+
+                <li class="list-unstyled border border-warning" role="presentation">
+                    <button 
+                        class="nav-link px-5 py-2" 
+                        id="drinks-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#drinks-tab-pane" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="drinks-tab-pane" 
+                        aria-selected="true">
+                        drinks
+                    </button>
+                </li>
+
+                <li class="list-unstyled border border-warning" role="presentation">
+                    <button 
+                        class="nav-link px-5 py-2" 
+                        id="combo-food-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#combo-food-tab-pane" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="combo-food-tab-pane" 
+                        aria-selected="true">
+                        combo-food
+                    </button>
+                </li>
+
+
+
+                
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab" tabindex="0">all</div>
+                <div class="tab-pane fade" id="promotion-tab-pane" role="tabpanel" aria-labelledby="promotion-tab" tabindex="1">promotion</div>
+                <div class="tab-pane fade" id="hot-food-tab-pane" role="tabpanel" aria-labelledby="hot-food-tab" tabindex="2">hot-food</div>
+                <div class="tab-pane fade" id="popcorn-tab-pane" role="tabpanel" aria-labelledby="popcorn-tab" tabindex="3">popcorn</div>
+                <div class="tab-pane fade" id="drinks-tab-pane" role="tabpanel" aria-labelledby="drinks-tab" tabindex="4">drinks</div>
+                <div class="tab-pane fade" id="combo-food-tab-pane" role="tabpanel" aria-labelledby="combo-food-tab" tabindex="5">combo-food</div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    
+
+
+
+
+
+</body>
+</html>
+
+
+
+<!-- 
+    
+    
+ -->
