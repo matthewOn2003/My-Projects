@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cinema_website.backend.mapper.FoodMapper">
+
+    <resultMap id="FoodResultMap" type="com.cinema_website.backend.model.Food">
+        <id property="foodId" column="food_id" />
+        <result property="foodNumber" column="food_number" />
+        <result property="name" column="name" />
+        <result property="description" column="description" />
+        <result property="foodImage" column="food_image" />
+        <result property="category" column="category" />
+        <result property="price" column="price" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <select id="getFoodById" resultMap="FoodResultMap">
+        SELECT * FROM food WHERE food_id = #{foodId}
+    </select>
+
+    <select id="getAllFoods" resultMap="FoodResultMap">
+        SELECT * FROM food
+    </select>
+
+    <select id="getAllCategories" resultType="java.lang.String" >
+        SELECT DISTINCT CATEGORY
+        FROM FOOD
+    </select>
+
+
+    <!--  INSERT  -->
+    <insert id="addFood" parameterType="com.cinema_website.backend.model.Food">
+        INSERT INTO food (food_number, name, description, food_image, category, price, created_at, updated_at)
+        VALUES (#{foodNumber}, #{name}, #{description}, #{foodImage}, #{category}, #{price}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <update id="updateFoodById" parameterType="map">
+        UPDATE food
+        SET
+            food_number = #{food.foodNumber},
+            name = #{food.name},
+            description = #{food.description},
+            food_image = #{food.foodImage},
+            category = #{food.category},
+            price = #{food.price},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            food_id = #{foodId}
+    </update>
+
+    <delete id="deleteFoodById">
+        DELETE FROM food WHERE food_id = #{foodId}
+    </delete>
+
+</mapper>

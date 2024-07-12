@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cinema_website.backend.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="com.cinema_website.backend.model.User">
+        <id property="userId" column="user_id" />
+        <result property="username" column="username" />
+        <result property="email" column="email" />
+        <result property="password" column="password" />
+        <result property="fullName" column="full_name" />
+        <result property="role" column="role" />
+        <result property="status" column="status" />
+        <result property="profilePicture" column="profile_picture" />
+        <result property="phoneNumber" column="phone_number" />
+        <result property="birthDate" column="birth_date" />
+        <result property="lastLogin" column="last_login" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <!-- Select user by user ID -->
+    <select id="getUserById" resultMap="UserResultMap">
+        SELECT * FROM users WHERE user_id = #{userId}
+    </select>
+
+
+    <!-- Select user by username and password (for authentication) -->
+    <select id="getUserByCredentials" resultMap="UserResultMap">
+        SELECT * FROM users WHERE username = #{username} AND password = #{password}
+    </select>
+
+    <!-- Select all users -->
+    <select id="getAllUsers" resultMap="UserResultMap">
+        SELECT * FROM users
+    </select>
+
+    <!-- Insert new user -->
+    <insert id="addUser" parameterType="com.cinema_website.backend.model.User">
+        INSERT INTO users (username, email, password, full_name, role, status, profile_picture, phone_number, birth_date, created_at, updated_at)
+        VALUES (#{username}, #{email}, #{password}, #{fullName}, #{role}, #{status}, #{profilePicture}, #{phoneNumber}, #{birthDate}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <!-- Update existing user by user ID -->
+    <update id="updateUserById" parameterType="map">
+        UPDATE users
+        SET
+            username = #{user.username},
+            email = #{user.email},
+            password = #{user.password},
+            full_name = #{user.fullName},
+            role = #{user.role},
+            status = #{user.status},
+            profile_picture = #{user.profilePicture},
+            phone_number = #{user.phoneNumber},
+            birth_date = #{user.birthDate},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            user_id = #{userId}
+    </update>
+
+    <update id="updateUserStatus" parameterType="map">
+        UPDATE users
+        SET
+            status = #{status},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            user_id = #{userId}
+    </update>
+
+    <!-- Delete user by user ID -->
+    <delete id="deleteUserById">
+        DELETE FROM users WHERE user_id = #{userId}
+    </delete>
+
+    <!-- Update last login timestamp for authentication purposes -->
+    <update id="updateLastLogin" parameterType="map">
+        UPDATE users
+        SET
+            last_login = CURRENT_TIMESTAMP
+        WHERE
+            user_id = #{userId}
+    </update>
+
+</mapper>

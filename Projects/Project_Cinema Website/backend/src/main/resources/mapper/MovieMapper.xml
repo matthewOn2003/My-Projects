@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--suppress ALL -->
+<mapper namespace="com.cinema_website.backend.mapper.MovieMapper">
+
+    <resultMap id="MovieResultMap" type="com.cinema_website.backend.model.Movie">
+        <id property="movieId" column="movie_id" />
+        <result property="title" column="title" />
+        <result property="genre" column="genre" />
+        <result property="duration" column="duration" />
+        <result property="language" column="language" />
+        <result property="subtitle" column="subtitle" />
+        <result property="posterImage" column="poster_image" />
+        <result property="director" column="director" />
+        <result property="synopsis" column="synopsis" />
+        <result property="releaseDate" column="release_date" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <select id="getMovieById" resultMap="MovieResultMap">
+        SELECT * FROM movies WHERE movie_id = #{movieId}
+    </select>
+
+    <select id="getAllMovies" resultMap="MovieResultMap">
+        SELECT * FROM movies
+    </select>
+
+    <insert id="addMovie" parameterType="com.cinema_website.backend.model.Movie">
+        INSERT INTO movies (title, genre, duration, language, subtitle, poster_image, director, synopsis, release_date, created_at, updated_at)
+        VALUES (#{title}, #{genre}, #{duration}, #{language}, #{subtitle}, #{posterImage}, #{director}, #{synopsis}, #{releaseDate}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <update id="updateMovieById" parameterType="map">
+        UPDATE movies
+        SET
+            title = #{movie.title},
+            genre = #{movie.genre},
+            duration = #{movie.duration},
+            language = #{movie.language},
+            subtitle = #{movie.subtitle},
+            poster_image = #{movie.posterImage},
+            director = #{movie.director},
+            synopsis = #{movie.synopsis},
+            release_date = #{movie.releaseDate},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            movie_id = #{movieId}
+    </update>
+
+    <delete id="deleteMovieById">
+        DELETE FROM movies WHERE movie_id = #{movieId}
+    </delete>
+
+</mapper>

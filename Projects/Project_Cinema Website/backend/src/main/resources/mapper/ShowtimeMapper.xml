@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cinema_website.backend.mapper.ShowtimeMapper">
+
+    <resultMap id="ShowtimeResultMap" type="com.cinema_website.backend.model.Showtime">
+        <id property="showtimeId" column="showtime_id" />
+        <result property="movieId" column="movie_id" />
+        <result property="cinemaId" column="cinema_id" />
+        <result property="hallId" column="hall_id" />
+        <result property="showDate" column="show_date" />
+        <result property="startTime" column="start_time" />
+        <result property="endTime" column="end_time" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <select id="getShowtimeById" resultMap="ShowtimeResultMap">
+        SELECT * FROM showtimes WHERE showtime_id = #{showtimeId}
+    </select>
+
+    <select id="getAllShowtimes" resultMap="ShowtimeResultMap">
+        SELECT * FROM showtimes ORDER BY show_date;
+    </select>
+
+    <select id="getShowtimesByMovieId" resultMap="ShowtimeResultMap">
+        SELECT * FROM showtimes WHERE movie_id = #{movieId} ORDER BY show_date;
+    </select>
+
+    <select id="getShowtimesByCinemaId" resultMap="ShowtimeResultMap">
+        SELECT * FROM showtimes WHERE cinema_id = #{cinemaId} ORDER BY show_date;
+    </select>
+
+    <select id="getShowtimesByHallId" resultMap="ShowtimeResultMap">
+        SELECT * FROM showtimes WHERE hall_id = #{hallId} ORDER BY show_date;
+    </select>
+
+    <select id="getShowtimesByMovieDateExperience" resultMap="ShowtimeResultMap">
+        SELECT s.*
+        FROM showtimes s, halls h
+        WHERE s.hall_id = h.hall_id
+          AND s.movie_id = #{movieId}
+          AND s.show_date LIKE CONCAT(#{showDate}, '%')  -- Concatenate % to match start of show_date
+          AND h.experience_type = #{experienceType}
+        ORDER BY s.show_date;
+    </select>
+
+    <select id="getShowtimesExperiences" resultType="string">
+        SELECT DISTINCT h.experience_type
+        FROM showtimes s, halls h
+        WHERE s.hall_id = h.hall_id
+          AND s.movie_id = #{movieId}
+          AND s.show_date LIKE CONCAT(#{showDate}, '%')
+        ORDER BY h.experience_type ASC
+    </select>
+
+
+    <!--  INSERT  -->
+    <insert id="addShowtime" parameterType="com.cinema_website.backend.model.Showtime">
+        INSERT INTO showtimes (movie_id, cinema_id, hall_id, show_date, start_time, end_time, created_at, updated_at)
+        VALUES (#{movieId}, #{cinemaId}, #{hallId}, #{showDate}, #{startTime}, #{endTime}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <update id="updateShowtimeById" parameterType="map">
+        UPDATE showtimes
+        SET
+            movie_id = #{showtime.movieId},
+            cinema_id = #{showtime.cinemaId},
+            hall_id = #{showtime.hallId},
+            show_date = #{showtime.showDate},
+            start_time = #{showtime.startTime},
+            end_time = #{showtime.endTime},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            showtime_id = #{showtimeId}
+    </update>
+
+    <delete id="deleteShowtimeById">
+        DELETE FROM showtimes WHERE showtime_id = #{showtimeId}
+    </delete>
+
+</mapper>

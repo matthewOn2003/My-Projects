@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cinema_website.backend.mapper.OrderMapper">
+
+    <resultMap id="OrderResultMap" type="com.cinema_website.backend.model.Order">
+        <id property="orderId" column="order_id" />
+        <result property="orderNumber" column="order_number" />
+        <result property="userId" column="user_id" />
+        <result property="showtimeId" column="showtime_id" />
+        <result property="transactionDate" column="transaction_date" />
+        <result property="totalAmount" column="total_amount" />
+        <result property="foodId" column="food_id" />
+        <result property="seatId" column="seat_id" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <select id="getOrderByOrderId" resultMap="OrderResultMap">
+        SELECT * FROM orders WHERE order_id = #{orderId}
+    </select>
+
+    <select id="getOrderByOrderNumber" resultMap="OrderResultMap">
+        SELECT * FROM orders WHERE order_number = #{orderNumber}
+    </select>
+
+    <select id="getAllOrders" resultMap="OrderResultMap">
+        SELECT * FROM orders
+    </select>
+
+    <select id="getAllDistinctOrderNumbers" resultType="java.lang.Integer">
+        SELECT DISTINCT ORDER_NUMBER FROM ORDERS
+    </select>
+
+    <select id="getLatestOrderNumber" resultType="java.lang.Integer">
+        SELECT MAX(ORDER_NUMBER) FROM ORDERS
+    </select>
+
+
+    <insert id="addOrder" parameterType="com.cinema_website.backend.model.Order">
+        INSERT INTO orders (order_number, user_id, showtime_id, total_amount, food_id, seat_id, created_at, updated_at)
+        VALUES (#{orderNumber}, #{userId}, #{showtimeId}, #{totalAmount}, #{foodId}, #{seatId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <update id="updateOrderById" parameterType="map">
+        UPDATE orders
+        SET
+            order_number = #{order.orderNumber},
+            user_id = #{order.userId},
+            showtime_id = #{order.showtimeId},
+            total_amount = #{order.totalAmount},
+            food_id = #{order.foodId},
+            seat_id = #{order.seatId},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            order_id = #{orderId}
+    </update>
+
+    <delete id="deleteOrderById">
+        DELETE FROM orders WHERE order_id = #{orderId}
+    </delete>
+
+</mapper>

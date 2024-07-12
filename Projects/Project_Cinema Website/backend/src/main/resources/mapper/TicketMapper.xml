@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cinema_website.backend.mapper.TicketMapper">
+
+    <resultMap id="TicketResultMap" type="com.cinema_website.backend.model.Ticket">
+        <id property="ticketId" column="ticket_id" />
+        <result property="referenceNo" column="reference_no" />
+        <result property="hallName" column="hall_name" />
+        <result property="movieTitle" column="movie_title" />
+        <result property="cinemaName" column="cinema_name" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <!-- Get ticket by ticket_id -->
+    <select id="getTicketById" resultMap="TicketResultMap">
+        SELECT * FROM tickets WHERE ticket_id = #{ticketId}
+    </select>
+
+    <!-- Get ticket by reference_no -->
+    <select id="getTicketByReferenceNo" resultMap="TicketResultMap">
+        SELECT * FROM tickets WHERE reference_no = #{referenceNo}
+    </select>
+
+    <!-- Get all tickets -->
+    <select id="getAllTickets" resultMap="TicketResultMap">
+        SELECT * FROM tickets
+    </select>
+
+    <!-- Add a new ticket -->
+    <insert id="addTicket" parameterType="com.cinema_website.backend.model.Ticket">
+        INSERT INTO tickets (reference_no, hall_name, movie_title, cinema_name, created_at, updated_at)
+        VALUES (#{referenceNo}, #{hallName}, #{movieTitle}, #{cinemaName}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <!-- Update ticket by ticket_id -->
+    <update id="updateTicketById" parameterType="com.cinema_website.backend.model.Ticket">
+        UPDATE tickets
+        SET
+            reference_no = #{referenceNo},
+            hall_name = #{hallName},
+            movie_title = #{movieTitle},
+            cinema_name = #{cinemaName},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            ticket_id = #{ticketId}
+    </update>
+
+    <!-- Update ticket by reference_no -->
+    <update id="updateTicketByReferenceNo" parameterType="com.cinema_website.backend.model.Ticket">
+        UPDATE tickets
+        SET
+            hall_name = #{hallName},
+            movie_title = #{movieTitle},
+            cinema_name = #{cinemaName},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            reference_no = #{referenceNo}
+    </update>
+
+    <!-- Delete ticket by ticket_id -->
+    <delete id="deleteTicketById">
+        DELETE FROM tickets WHERE ticket_id = #{ticketId}
+    </delete>
+
+    <!-- Delete ticket by reference_no -->
+    <delete id="deleteTicketByReferenceNo">
+        DELETE FROM tickets WHERE reference_no = #{referenceNo}
+    </delete>
+
+</mapper>

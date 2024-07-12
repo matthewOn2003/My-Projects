@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--suppress ALL -->
+<mapper namespace="com.cinema_website.backend.mapper.SeatMapper">
+
+    <resultMap id="SeatResultMap" type="com.cinema_website.backend.model.Seat">
+        <id property="seatId" column="seat_id" />
+        <result property="hallId" column="hall_id" />
+        <result property="seatNumber" column="seat_number" />
+        <result property="seatRow" column="seat_row" />
+        <result property="status" column="status" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <select id="getSeatById" resultMap="SeatResultMap">
+        SELECT * FROM seats WHERE seat_id = #{seatId}
+    </select>
+
+    <select id="getAllSeats" resultMap="SeatResultMap">
+        SELECT * FROM seats
+    </select>
+
+    <select id="getSeatsByHallId" resultMap="SeatResultMap">
+        SELECT * FROM seats WHERE hall_id = #{hallId}
+    </select>
+
+    <insert id="addSeat" parameterType="com.cinema_website.backend.model.Seat">
+        INSERT INTO seats (hall_id, seat_number, seat_row, status, created_at, updated_at)
+        VALUES (#{hallId}, #{seatNumber}, #{seatRow}, #{status}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <update id="updateSeatById" parameterType="map">
+        UPDATE seats
+        SET
+            hall_id = #{seat.hallId},
+            seat_number = #{seat.seatNumber},
+            seat_row = #{seat.seatRow},
+            status = #{seat.status},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            seat_id = #{seatId}
+    </update>
+
+    <delete id="deleteSeatById">
+        DELETE FROM seats WHERE seat_id = #{seatId}
+    </delete>
+
+</mapper>

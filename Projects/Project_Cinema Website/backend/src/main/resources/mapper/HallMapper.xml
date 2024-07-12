@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--suppress ALL -->
+<mapper namespace="com.cinema_website.backend.mapper.HallMapper">
+
+    <resultMap id="HallResultMap" type="com.cinema_website.backend.model.Hall">
+        <id property="hallId" column="hall_id" />
+        <result property="cinemaId" column="cinema_id" />
+        <result property="hallName" column="hall_name" />
+        <result property="experienceType" column="experience_type" />
+        <result property="status" column="status" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <select id="getHallById" resultMap="HallResultMap">
+        SELECT * FROM halls WHERE hall_id = #{hallId}
+    </select>
+
+    <select id="getAllHalls" resultMap="HallResultMap">
+        SELECT * FROM halls
+    </select>
+
+    <select id="getHallsByCinemaId" resultMap="HallResultMap">
+        SELECT * FROM halls where cinema_id = #{cinemaId}
+    </select>
+
+
+    <insert id="addHall" parameterType="com.cinema_website.backend.model.Hall">
+        INSERT INTO halls (cinema_id, hall_name, experience_type, status, created_at, updated_at)
+        VALUES (#{cinemaId}, #{hallName}, #{experienceType}, #{status}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <update id="updateHallById" parameterType="com.cinema_website.backend.model.Hall">
+        UPDATE halls
+        SET
+            cinema_id = #{cinemaId},
+            hall_name = #{hallName},
+            experience_type = #{experienceType},
+            status = #{status},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            hall_id = #{hallId}
+    </update>
+
+    <delete id="deleteHallById">
+        DELETE FROM halls WHERE hall_id = #{hallId}
+    </delete>
+
+</mapper>
