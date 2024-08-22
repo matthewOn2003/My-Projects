@@ -13,8 +13,16 @@ class TicketService {
         return (await axios.get(`${baseURL}/getTicketByReferenceNo/${referenceNo}`)).data;
     }
 
+    static async getTicketSummaryById(ticketId) {
+        return (await axios.get(`${baseURL}/getTicketSummary/${ticketId}`)).data;
+    }
+
     static async getAllTickets() {
         return (await axios.get(`${baseURL}/getAllTickets`)).data;
+    }
+
+    static async getTicketsByUserId(userId) {
+        return (await axios.get(`${baseURL}/getTicketsByUserId/${userId}`)).data;
     }
 
     // POST

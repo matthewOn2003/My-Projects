@@ -19,7 +19,7 @@ export const ProtectedRoute = () => {
     setUser(updatedUser);
     UserService.updateUserStatus(user.userId, 'ACTIVE');
 
-    console.log('current user: ', user);
+    // console.log('current user: ', user);
 
     return <Outlet />; // Render child routes if user is authenticated
 };

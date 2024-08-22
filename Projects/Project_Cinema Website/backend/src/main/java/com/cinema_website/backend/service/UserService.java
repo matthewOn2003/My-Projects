@@ -30,6 +30,14 @@ public class UserService {
         return userRepository.getUserByCredentials(username, password);
     }
 
+    public UserDTO getUserByUsername(String username) {
+        return userRepository.getUserByUsername(username);
+    }
+
+    public UserDTO getUserByEmail(String email) {
+        return userRepository.getUserByEmail(email);
+    }
+
     public List<UserDTO> getAllUsers() {
         return userRepository.getAllUsers();
     }

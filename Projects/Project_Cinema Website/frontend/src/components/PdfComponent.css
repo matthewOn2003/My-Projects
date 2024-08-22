@@ -1,0 +1,10 @@
+.hidden-for-print {
+    position: absolute;
+    left: -999999px;
+}
+
+.pdf-content {
+    /* Add any styles necessary for the PDF content */
+    background-color: #fff;
+    padding: 20px;
+}

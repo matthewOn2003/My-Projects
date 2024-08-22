@@ -4,7 +4,7 @@ const baseURL = 'http://localhost:8080/api/halls'; // Replace with your actual A
 
 class HallService {
 
-    // GET
+    // GET 
     static async getHallById(hallId) {
         return (await axios.get(`${baseURL}/getHall/${hallId}`)).data;
     }

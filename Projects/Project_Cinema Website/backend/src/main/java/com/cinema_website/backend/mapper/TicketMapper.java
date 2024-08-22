@@ -15,6 +15,8 @@ public interface TicketMapper {
 
     List<Ticket> getAllTickets();
 
+    List<Ticket> getTicketsByUserId(int userId);
+
     boolean addTicket(Ticket ticket);
 
     boolean updateTicketById(@Param("ticketId") int ticketId, @Param("ticket") Ticket ticket);

@@ -35,6 +35,12 @@ public class TicketController {
         }
     }
 
+    @GetMapping("/getTicketSummary/{ticketId}")
+    public String getTicketSummaryById(@PathVariable int ticketId) {
+        String summary = ticketService.getTicketSummaryById(ticketId);
+        return summary;
+    }
+
     @GetMapping("/getTicketByReferenceNo/{referenceNo}")
     public ResponseEntity<TicketDTO> getTicketByReferenceNo(@PathVariable int referenceNo) {
         TicketDTO ticket = ticketService.getTicketByReferenceNo(referenceNo);
@@ -48,6 +54,16 @@ public class TicketController {
     @GetMapping("/getAllTickets")
     public ResponseEntity<List<TicketDTO>> getAllTickets() {
         List<TicketDTO> ticketList = ticketService.getAllTickets();
+        if (ticketList != null && !ticketList.isEmpty()) {
+            return new ResponseEntity<>(ticketList, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+        @GetMapping("/getTicketsByUserId/{userId}")
+    public ResponseEntity<List<TicketDTO>> getTicketsByUserId(@PathVariable int userId) {
+        List<TicketDTO> ticketList = ticketService.getTicketsByUserId(userId);
         if (ticketList != null && !ticketList.isEmpty()) {
             return new ResponseEntity<>(ticketList, HttpStatus.OK);
         } else {

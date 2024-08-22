@@ -22,6 +22,7 @@ public class CinemaRepository {
     // SELECT
     public CinemaDTO getCinemaById(int cinemaId) {
         Cinema cinema = cinemaMapper.getCinemaById(cinemaId);
+        System.out.println(cinema);
         return CinemaUtils.toCinemaDTO(cinema);
     }
 
@@ -34,6 +35,7 @@ public class CinemaRepository {
                 CinemaDTO element = CinemaUtils.toCinemaDTO(cinema);
                 cinemaDTOS.add(element);
             }
+            System.out.println(cinemaDTOS);
 
             return cinemaDTOS;
         } catch (Exception e) {

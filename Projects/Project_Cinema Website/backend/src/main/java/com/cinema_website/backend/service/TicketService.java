@@ -23,12 +23,20 @@ public class TicketService {
         return ticketRepository.getTicketById(ticketId);
     }
 
+    public String getTicketSummaryById(int ticketId) {
+        return ticketRepository.getTicketSummaryById(ticketId);
+    }
+
     public TicketDTO getTicketByReferenceNo(int referenceNo) {
         return ticketRepository.getTicketByReferenceNo(referenceNo);
     }
 
     public List<TicketDTO> getAllTickets() {
         return ticketRepository.getAllTickets();
+    }
+
+    public List<TicketDTO> getTicketsByUserId(int userId) {
+        return ticketRepository.getTicketsByUserId(userId);
     }
 
     // INSERT

@@ -9,6 +9,7 @@ public class MovieDTO {
     private String language;
     private String subtitle;
     private String posterImage;
+    private String trailerLink;
     private String director;
     private String synopsis;
     private String releaseDate;
@@ -16,15 +17,12 @@ public class MovieDTO {
     private String updatedAt;
 
 
-
     // Default constructor
     public MovieDTO() {
 
     }
 
-    public MovieDTO(int movieId, String title, String genre, String duration,
-                    String language, String subtitle, String posterImage, String director,
-                    String synopsis, String releaseDate, String createdAt, String updatedAt) {
+    public MovieDTO(int movieId, String title, String genre, String duration, String language, String subtitle, String posterImage, String trailerLink, String director, String synopsis, String releaseDate, String createdAt, String updatedAt) {
         this.movieId = movieId;
         this.title = title;
         this.genre = genre;
@@ -32,6 +30,7 @@ public class MovieDTO {
         this.language = language;
         this.subtitle = subtitle;
         this.posterImage = posterImage;
+        this.trailerLink = trailerLink;
         this.director = director;
         this.synopsis = synopsis;
         this.releaseDate = releaseDate;
@@ -95,6 +94,14 @@ public class MovieDTO {
         this.posterImage = posterImage;
     }
 
+    public String getTrailerLink() {
+        return trailerLink;
+    }
+
+    public void setTrailerLink(String trailerLink) {
+        this.trailerLink = trailerLink;
+    }
+
     public String getDirector() {
         return director;
     }
@@ -137,19 +144,20 @@ public class MovieDTO {
 
     @Override
     public String toString() {
-        return "Movie{" +
+        return "MovieDTO{" +
                 "movieId=" + movieId +
                 ", title='" + title + '\'' +
                 ", genre='" + genre + '\'' +
-                ", duration=" + duration +
+                ", duration='" + duration + '\'' +
                 ", language='" + language + '\'' +
                 ", subtitle='" + subtitle + '\'' +
                 ", posterImage='" + posterImage + '\'' +
+                ", trailerLink='" + trailerLink + '\'' +
                 ", director='" + director + '\'' +
                 ", synopsis='" + synopsis + '\'' +
-                ", releaseDate=" + releaseDate +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                ", updatedAt='" + updatedAt + '\'' +
                 '}';
     }
 }

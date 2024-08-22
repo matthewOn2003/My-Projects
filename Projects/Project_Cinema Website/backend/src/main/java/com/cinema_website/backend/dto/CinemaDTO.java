@@ -6,6 +6,7 @@ public class CinemaDTO {
     private int cinemaId;
     private String name;
     private String address;
+    private String locationLink;
     private String city;
     private String cinemaImage;
     private String contactNo;
@@ -17,10 +18,12 @@ public class CinemaDTO {
     }
 
     // Constructor
-    public CinemaDTO(int cinemaId, String name, String address, String city, String cinemaImage, String contactNo, String createdAt, String updatedAt) {
+
+    public CinemaDTO(int cinemaId, String name, String address, String locationLink, String city, String cinemaImage, String contactNo, String createdAt, String updatedAt) {
         this.cinemaId = cinemaId;
         this.name = name;
         this.address = address;
+        this.locationLink = locationLink;
         this.city = city;
         this.cinemaImage = cinemaImage;
         this.contactNo = contactNo;
@@ -50,6 +53,14 @@ public class CinemaDTO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getLocationLink() {
+        return locationLink;
+    }
+
+    public void setLocationLink(String locationLink) {
+        this.locationLink = locationLink;
     }
 
     public String getCity() {
@@ -98,6 +109,7 @@ public class CinemaDTO {
                 "cinemaId=" + cinemaId +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
+                ", locationLink='" + locationLink + '\'' +
                 ", city='" + city + '\'' +
                 ", cinemaImage='" + cinemaImage + '\'' +
                 ", contactNo='" + contactNo + '\'' +

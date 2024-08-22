@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
+import screen from '../../assets/img/screen.png'
+
 import selected from '../../assets/img/selected.png';
 import available from '../../assets/img/available.png';
 import booked from '../../assets/img/booked.png';
 import blocked from '../../assets/img/blocked.png';
 
 
-function SeatOptions(props) {
-    const { seats, selectedSeats, setSelectedSeats } = props;
+function SeatOptions({ seats, selectedSeats, setSelectedSeats }) {
 
     const handleSeatClick = (seat) => {
         setSelectedSeats(prevSelectedSeats => {
@@ -32,7 +33,7 @@ function SeatOptions(props) {
             .map(seat => (
                 <span
                     key={seat.seatId}
-                    className={`d-inline-block mx-1 text-center `}
+                    className={`d-inline-block mx-1 text-center`}
                     style={{
                         height: '40px', width: '40px', position: 'relative',
                         display: 'inline-flex', alignItems: 'center', justifyContent: 'center'
@@ -55,8 +56,7 @@ function SeatOptions(props) {
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}
-                            onClick={() => handleSeatClick(seat)}
-                        >
+                            onClick={() => handleSeatClick(seat)}>
                             {seat.seatNumber}
                         </button>
                     ) : (
@@ -98,26 +98,27 @@ function SeatOptions(props) {
     };
 
     return (
-        <div className="SeatOptions">
-            <section style={{ backgroundColor: 'black', minHeight: '630px' }}>
-                <div className="container p-5">
-                    <div className="bg-white" style={{ height: '200px' }}>
-                        SCREEN
+        <div className="">
+            <section style={{ backgroundColor: '#003a8c', minHeight: '630px' }}>
+                <div className="container p-5 ">
+                    <div className='d-flex justify-content-center align-items-center'>
+                        <img src={screen} />
                     </div>
 
-                    <div className="py-4 text-white">
-                        {uniqueRows.map(row => (
-                            <div
-                                key={row}
-                                className="d-flex justify-content-between mx-auto my-4 px-5 align-items-center w-100"
-                            >
-                                <span className="me-5">{row}</span>
-                                <span style={{ minWidth: '50%', maxWidth: '80%' }}>
-                                    {renderSeats(row)}
-                                </span>
-                                <span className="ms-5">{row}</span>
-                            </div>
-                        ))}
+                    <div className="py-4 text-white d-flex justify-content-center">
+                        <div className=''>
+                            {uniqueRows.map(row => (
+                                <div
+                                    key={row}
+                                    className="d-flex justify-content-between mx-auto my-4 px-5 align-items-center">
+                                    <span className="me-5 ">{row}</span>
+                                    <span className=''>
+                                        {renderSeats(row)}
+                                    </span>
+                                    <span className="ms-5">{row}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     {renderSeatInfo()}

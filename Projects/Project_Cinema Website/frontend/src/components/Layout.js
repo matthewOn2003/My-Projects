@@ -1,7 +1,11 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import BlackFooter from './BlackFooter';
-import DarkNav from './DarkNav';
+// import BlackFooter from './BlackFooter';
+// import DarkNav from './DarkNav';
+
+import Navbar01 from './Navbar01';
+import Footer01 from './Footer01';
+
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
@@ -25,9 +29,9 @@ const Layout = () => {
     // Render layout with navigation and footer for all other pages
     return (
         <>
-            <DarkNav />
+            <Navbar01 />
             <Outlet />
-            <BlackFooter />
+            <Footer01 />
         </>
     );
 };

@@ -11,6 +11,9 @@ public interface UserMapper {
     User getUserById(int userId);
     List<User> getAllUsers();
     User getUserByCredentials(@Param("username") String username, @Param("password") String password);
+    User getUserByUsername(@Param("username") String username);
+    User getUserByEmail(@Param("email") String email);
+
     boolean addUser(User user);
     boolean updateUserById(@Param("userId") int userId, @Param("user") User user);
     boolean updateUserStatus(@Param("userId") int userId, @Param("status") String status);

@@ -26,38 +26,43 @@ import NoPage from './components/NoPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import RegisterPage from './pages/register/RegisterPage';
 import ProfilePage from './pages/profile/ProfilePage';
+import TngPage from './pages/payment/TngPage';
+
+
 
 function App() {
   return (
     <AuthProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
+
           <Route index path="" element={<HomePage />} />
           <Route path="login-page" element={<LoginPage />} />
           <Route path="register-page" element={<RegisterPage />} />
+          {/* forget password */}
           <Route path="*" element={<NoPage />} />
 
-
-
-          {/* 所有页面都在 Layout 组件内 */}
           {/* Protected routes */}
           <Route path="/secret/" element={<ProtectedRoute />}>
             <Route path="profile-page" element={<ProfilePage />} />
-            <Route path="food-selection-page" element={<FoodSelectionPage />} />
             <Route path="movie-list-page" element={<MovieListPage />} />
-            <Route path="movies-page" element={<MoviesPage />} />
-            <Route path="payment-page" element={<PaymentPage />} />
-            <Route path="promotion-list-page" element={<PromotionListPage />} />
-            <Route path="seat-selection-page" element={<SeatSelectionPage />} />
-            <Route path="ticket-confirm-page" element={<TicketConfirmPage />} />
-            <Route path="about-us-page" element={<AboutUsPage />} />
-            <Route path="admin-page" element={<AdminPage />} />
-            <Route path="cinema-intro-page" element={<CinemaIntroPage />} />
-            <Route path="cinema-list-page" element={<CinemaListPage />} />
-            <Route path="experience-intro-page" element={<ExperienceIntroPage />} />
-            <Route path="experience-list-page" element={<ExperienceListPage />} />
             <Route path="movie-intro-page" element={<MovieIntroPage />} />
-            <Route path="promotion-intro-page" element={<PromotionIntroPage />} />
+            <Route path="movies-page" element={<MoviesPage />} />
+            <Route path="seat-selection-page" element={<SeatSelectionPage />} />
+            <Route path="food-selection-page" element={<FoodSelectionPage />} />
+            <Route path="payment-page" element={<PaymentPage />} />
+            <Route path="tng-page" element={<TngPage />} />
+            <Route path="cinema-list-page" element={<CinemaListPage />} />
+            <Route path="cinema-intro-page" element={<CinemaIntroPage />} />
+            <Route path="about-us-page" element={<AboutUsPage />} />
+
+            {/* <Route path="promotion-list-page" element={<PromotionListPage />} /> */}
+            {/* <Route path="promotion-intro-page" element={<PromotionIntroPage />} /> */}
+            <Route path="ticket-confirm-page" element={<TicketConfirmPage />} />
+            {/* <Route path="admin-page" element={<AdminPage />} /> */}
+            {/* <Route path="experience-list-page" element={<ExperienceListPage />} /> */}
+            {/* <Route path="experience-intro-page" element={<ExperienceIntroPage />} /> */}
+
             {/* Add more protected components as needed */}
             <Route path="*" element={<NoPage />} />
           </Route>

@@ -1,0 +1,9 @@
+/* Posters.css */
+
+li .hover-item {
+    display: none;
+}
+
+li:hover .hover-item {
+    display: flex;
+}

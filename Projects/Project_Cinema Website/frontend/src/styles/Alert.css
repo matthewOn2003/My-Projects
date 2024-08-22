@@ -1,0 +1,19 @@
+@keyframes alertAnimation {
+
+    0%,
+    100% {
+        transform: translateY(-200px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+}
+
+.animated-alert {
+    animation: alertAnimation 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animated-alert.paused {
+    animation-play-state: paused;
+}

@@ -8,6 +8,7 @@ public class TicketDTO {
     private String hallName;
     private String movieTitle;
     private String cinemaName;
+    private String showDate;
     private String createdAt; // Changed from Timestamp to String
     private String updatedAt; // Changed from Timestamp to String
 
@@ -17,12 +18,13 @@ public class TicketDTO {
     }
 
     // Constructor with all fields
-    public TicketDTO(int ticketId, OrderDTO order, String hallName, String movieTitle, String cinemaName, String createdAt, String updatedAt) {
+    public TicketDTO(int ticketId, OrderDTO order, String hallName, String movieTitle, String cinemaName, String showDate, String createdAt, String updatedAt) {
         this.ticketId = ticketId;
         this.order = order;
         this.hallName = hallName;
         this.movieTitle = movieTitle;
         this.cinemaName = cinemaName;
+        this.showDate = showDate;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -69,6 +71,14 @@ public class TicketDTO {
         this.cinemaName = cinemaName;
     }
 
+    public String getShowDate() {
+        return showDate;
+    }
+
+    public void setShowDate(String showDate) {
+        this.showDate = showDate;
+    }
+
     public String getCreatedAt() {
         return createdAt;
     }
@@ -89,10 +99,11 @@ public class TicketDTO {
     public String toString() {
         return "TicketDTO{" +
                 "ticketId=" + ticketId +
-                ", order=" + order.toString() +
+                ", order=" + order +
                 ", hallName='" + hallName + '\'' +
                 ", movieTitle='" + movieTitle + '\'' +
                 ", cinemaName='" + cinemaName + '\'' +
+                ", showDate='" + showDate + '\'' +
                 ", createdAt='" + createdAt + '\'' +
                 ", updatedAt='" + updatedAt + '\'' +
                 '}';

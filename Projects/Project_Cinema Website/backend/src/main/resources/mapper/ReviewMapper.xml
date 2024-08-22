@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cinema_website.backend.mapper.ReviewMapper">
+
+    <resultMap id="ReviewResultMap" type="com.cinema_website.backend.model.Review">
+        <id property="reviewId" column="review_id" />
+        <result property="userId" column="user_id" />
+        <result property="targetId" column="target_id" />
+        <result property="targetTable" column="target_table" />
+        <result property="targetName" column="target_name" />
+        <result property="rating" column="rating" />
+        <result property="reviewText" column="review_text" />
+        <result property="reviewDate" column="review_date" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <select id="getReviewById" resultMap="ReviewResultMap">
+        SELECT * FROM reviews WHERE review_id = #{reviewId}
+    </select>
+
+    <select id="getAllReviews" resultMap="ReviewResultMap">
+        SELECT * FROM reviews
+    </select>
+
+    <select id="getReviewsByTarget" resultMap="ReviewResultMap">
+        SELECT * FROM reviews WHERE target_id = #{targetId} AND target_table = #{targetTable}
+    </select>
+
+    <select id="getReviewsByUser" resultMap="ReviewResultMap">
+        SELECT * FROM reviews WHERE user_id = #{userId}
+    </select>
+
+    <insert id="addReview" parameterType="com.cinema_website.backend.model.Review">
+        INSERT INTO reviews (user_id, target_id, target_table, target_name, rating, review_text, review_date, created_at, updated_at)
+        VALUES (#{userId}, #{targetId}, #{targetTable}, #{target_name}, #{rating}, #{reviewText}, #{reviewDate}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <update id="updateReviewById" parameterType="map">
+        UPDATE reviews
+        SET
+            user_id = #{review.userId},
+            target_id = #{review.targetId},
+            target_table = #{review.targetTable},
+            rating = #{review.rating},
+            target_name = #{target_name},
+            review_text = #{review.reviewText},
+            review_date = #{review.reviewDate},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+            review_id = #{reviewId}
+    </update>
+
+    <delete id="deleteReviewById">
+        DELETE FROM reviews WHERE review_id = #{reviewId}
+    </delete>
+
+</mapper>

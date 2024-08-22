@@ -14,6 +14,7 @@
         <result property="language" column="language" />
         <result property="subtitle" column="subtitle" />
         <result property="posterImage" column="poster_image" />
+        <result property="trailerLink" column="trailer_link" />
         <result property="director" column="director" />
         <result property="synopsis" column="synopsis" />
         <result property="releaseDate" column="release_date" />
@@ -30,8 +31,8 @@
     </select>
 
     <insert id="addMovie" parameterType="com.cinema_website.backend.model.Movie">
-        INSERT INTO movies (title, genre, duration, language, subtitle, poster_image, director, synopsis, release_date, created_at, updated_at)
-        VALUES (#{title}, #{genre}, #{duration}, #{language}, #{subtitle}, #{posterImage}, #{director}, #{synopsis}, #{releaseDate}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+        INSERT INTO movies (title, genre, duration, language, subtitle, poster_image, trailer_link, director, synopsis, release_date, created_at, updated_at)
+        VALUES (#{title}, #{genre}, #{duration}, #{language}, #{subtitle}, #{posterImage}, #{trailerLink}, #{director}, #{synopsis}, #{releaseDate}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
     <update id="updateMovieById" parameterType="map">
@@ -43,6 +44,7 @@
             language = #{movie.language},
             subtitle = #{movie.subtitle},
             poster_image = #{movie.posterImage},
+            trailer_link = #{movie.trailerLink}
             director = #{movie.director},
             synopsis = #{movie.synopsis},
             release_date = #{movie.releaseDate},

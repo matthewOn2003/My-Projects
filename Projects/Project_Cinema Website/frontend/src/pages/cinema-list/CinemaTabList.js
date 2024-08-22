@@ -5,10 +5,10 @@ function CinemaTabList(props) {
 
     return (
         <div className="CinemaTabList dropdown d-flex align-items-center my-4">
-            <div className='text-white me-3 fs-5'>Location: </div>
+            <div className='me-3 fs-5'>Location: </div>
             <button
                 type="button"
-                className="btn dropdown-toggle bg-white text-end px-3"
+                className="btn border border-dark dropdown-toggle text-end px-3"
                 data-bs-toggle="dropdown"
                 style={{ minWidth: '150px' }}>
                 {toTitleCase(locationSelected)}

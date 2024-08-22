@@ -27,10 +27,24 @@
     </select>
 
 
-    <!-- Select user by username and password (for authentication) -->
+    <!-- Login -->
     <select id="getUserByCredentials" resultMap="UserResultMap">
         SELECT * FROM users WHERE username = #{username} AND password = #{password}
     </select>
+
+
+    <!-- Validate username (Register) -->
+    <select id="getUserByUsername" resultMap="UserResultMap">
+        SELECT * FROM users WHERE username = #{username}
+    </select>
+
+
+    <!-- Validate email (Register) -->
+    <select id="getUserByEmail" resultMap="UserResultMap">
+        SELECT * FROM users WHERE email = #{email}
+    </select>
+
+
 
     <!-- Select all users -->
     <select id="getAllUsers" resultMap="UserResultMap">

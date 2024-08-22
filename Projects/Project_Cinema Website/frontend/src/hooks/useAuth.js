@@ -17,8 +17,9 @@ export const AuthProvider = ({ children }) => {
             const response = await UserService.getUserByCredentials(data.username, data.password);
             setUser(response);
             navigate("/secret/profile-page");
+            alert('Login Successful!');
         } catch (error) {
-            console.log('user not found');
+            alert('User do not exist. Please register an account first.');
             console.error(error);
         }
 
@@ -33,16 +34,39 @@ export const AuthProvider = ({ children }) => {
         setUser(null);
         UserService.updateUserStatus(updatedUser.userId, 'INACTIVE');
 
-
         // navigate("/", { replace: true });
         navigate("/login-page");
     };
 
 
     //
-    // const register = () => {
+    const register = async (formState) => {
+        alert('register...');
+        const user = {
+            username: formState.username,
+            email: formState.email,
+            password: formState.password,
+            fullName: formState.fullName,
+            role: 'USER',
+            status: 'INACTIVE',
+            // profilePicture,
+            phoneNumber: formState.phoneNumber,
+            birthDate: `${formState.birthDate} 00:00:00`,
+            // lastLogin,
+        }
 
-    // }
+
+        try {
+            const response = await UserService.addUser(user);
+            alert('Register Successful!')
+            navigate("/login-page");
+        } catch (error) {
+            alert('Register Failed!');
+            console.error(error);
+        }
+
+
+    }
 
     const value = useMemo(
         () => ({
@@ -50,6 +74,7 @@ export const AuthProvider = ({ children }) => {
             setUser,
             login,
             logout,
+            register,
         }),
         [user]
     );

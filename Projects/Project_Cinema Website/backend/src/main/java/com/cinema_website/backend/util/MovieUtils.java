@@ -31,6 +31,7 @@ public class MovieUtils {
         movieDTO.setLanguage(movie.getLanguage());
         movieDTO.setSubtitle(movie.getSubtitle());
         movieDTO.setPosterImage(movie.getPosterImage());
+        movieDTO.setTrailerLink(movie.getTrailerLink());
         movieDTO.setDirector(movie.getDirector());
         movieDTO.setSynopsis(movie.getSynopsis());
 
@@ -70,6 +71,7 @@ public class MovieUtils {
         movie.setLanguage(movieDTO.getLanguage());
         movie.setSubtitle(movieDTO.getSubtitle());
         movie.setPosterImage(movieDTO.getPosterImage());
+        movie.setTrailerLink(movieDTO.getTrailerLink());
         movie.setDirector(movieDTO.getDirector());
         movie.setSynopsis(movieDTO.getSynopsis());
 

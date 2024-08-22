@@ -35,6 +35,20 @@ public class UserRepository {
         }
         return UserUtils.toUserDTO(user);
     }
+    public UserDTO getUserByUsername(String username) {
+        User user = userMapper.getUserByUsername(username);
+        if (user == null) {
+            return null;
+        }
+        return UserUtils.toUserDTO(user);
+    }
+    public UserDTO getUserByEmail(String email) {
+        User user = userMapper.getUserByEmail(email);
+        if (user == null) {
+            return null;
+        }
+        return UserUtils.toUserDTO(user);
+    }
 
     public List<UserDTO> getAllUsers() {
         try {

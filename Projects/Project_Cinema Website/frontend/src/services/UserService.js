@@ -10,9 +10,21 @@ class UserService {
         return response.data;
     }
 
-    // Authentication (pass username and password)
+    // Login (pass username and password)
     static async getUserByCredentials(username, password) {
         const response = await axios.get(`${baseURL}/getUserByCredentials/${username}/${password}`);
+        return response.data;
+    }
+
+    // Validate username
+    static async getUserByUsername(username) {
+        const response = await axios.get(`${baseURL}/getUserByUsername/${username}`);
+        return response.data;
+    }
+
+    // Validate email
+    static async getUserByEmail(email) {
+        const response = await axios.get(`${baseURL}/getUserByEmail/${email}`);
         return response.data;
     }
 

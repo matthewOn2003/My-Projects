@@ -7,6 +7,7 @@ public class Cinema {
     private int cinemaId;
     private String name;
     private String address;
+    private String locationLink;
     private String city;
     private String cinemaImage;
     private String contactNo;
@@ -17,11 +18,11 @@ public class Cinema {
     public Cinema() {
     }
 
-    // Constructor
-    public Cinema(int cinemaId, String name, String address, String city, String cinemaImage, String contactNo, Timestamp createdAt, Timestamp updatedAt) {
+    public Cinema(int cinemaId, String name, String address, String locationLink, String city, String cinemaImage, String contactNo, Timestamp createdAt, Timestamp updatedAt) {
         this.cinemaId = cinemaId;
         this.name = name;
         this.address = address;
+        this.locationLink = locationLink;
         this.city = city;
         this.cinemaImage = cinemaImage;
         this.contactNo = contactNo;
@@ -51,6 +52,14 @@ public class Cinema {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getLocationLink() {
+        return locationLink;
+    }
+
+    public void setLocationLink(String locationLink) {
+        this.locationLink = locationLink;
     }
 
     public String getCity() {
@@ -99,6 +108,7 @@ public class Cinema {
                 "cinemaId=" + cinemaId +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
+                ", locationLink='" + locationLink + '\'' +
                 ", city='" + city + '\'' +
                 ", cinemaImage='" + cinemaImage + '\'' +
                 ", contactNo='" + contactNo + '\'' +

@@ -30,6 +30,13 @@
         SELECT * FROM tickets
     </select>
 
+    <!-- Get tickets by user id -->
+    <select id="getTicketsByUserId" resultMap="TicketResultMap">
+        SELECT DISTINCT T.* FROM tickets T, orders O
+        WHERE T.reference_no = O.order_number
+        AND O.user_id = #{userId}
+    </select>
+
     <!-- Add a new ticket -->
     <insert id="addTicket" parameterType="com.cinema_website.backend.model.Ticket">
         INSERT INTO tickets (reference_no, hall_name, movie_title, cinema_name, created_at, updated_at)

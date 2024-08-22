@@ -14,6 +14,7 @@ import org.aspectj.weaver.patterns.ReferencePointcut;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
 public class OrderUtils {
 
     // Convert Strings to Timestamps
-    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static OrderDTO toOrderDTO(List<Order> orders, FoodService foodService, SeatService seatService) {
         OrderDTO orderDTO = new OrderDTO();
@@ -56,13 +57,13 @@ public class OrderUtils {
 
 
         if (firstOrder.getTransactionDate() != null) {
-            orderDTO.setTransactionDate(orders.get(0).getTransactionDate().toString()); // Assuming transactionDate is a String
+            orderDTO.setTransactionDate(dateFormat.format(firstOrder.getTransactionDate())); // Assuming transactionDate is a String
         }
         if (firstOrder.getCreatedAt() != null) {
-            orderDTO.setCreatedAt(firstOrder.getCreatedAt().toString()); // Assuming createdAt is a String
+            orderDTO.setCreatedAt(dateFormat.format(firstOrder.getCreatedAt())); // Assuming createdAt is a String
         }
         if (firstOrder.getUpdatedAt() != null) {
-            orderDTO.setUpdatedAt(firstOrder.getUpdatedAt().toString()); // Assuming updatedAt is a String
+            orderDTO.setUpdatedAt(dateFormat.format(firstOrder.getUpdatedAt())); // Assuming updatedAt is a String
         }
 
         return orderDTO;
@@ -83,13 +84,13 @@ public class OrderUtils {
 
             try {
                 if (orderDTO.getTransactionDate() != null) {
-                    order.setTransactionDate(Timestamp.valueOf(orderDTO.getTransactionDate()));
+                    order.setTransactionDate(new Timestamp(dateFormat.parse(orderDTO.getTransactionDate()).getTime()));
                 }
                 if (orderDTO.getCreatedAt() != null) {
-                    order.setCreatedAt(Timestamp.valueOf(orderDTO.getCreatedAt()));
+                    order.setCreatedAt(new Timestamp(dateFormat.parse(orderDTO.getCreatedAt()).getTime()));
                 }
                 if (orderDTO.getUpdatedAt() != null) {
-                    order.setUpdatedAt(Timestamp.valueOf(orderDTO.getUpdatedAt()));
+                    order.setUpdatedAt(new Timestamp(dateFormat.parse(orderDTO.getUpdatedAt()).getTime()));
                 }
             } catch (Exception e) {
                 e.printStackTrace(); // Handle the exception properly in real scenarios

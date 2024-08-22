@@ -18,6 +18,7 @@ public class Movie {
     private String language;
     private String subtitle;
     private String posterImage;
+    private String trailerLink;
     private String director;
     private String synopsis;
     private Timestamp releaseDate;
@@ -31,9 +32,7 @@ public class Movie {
 
     }
 
-    public Movie(int movieId, String title, String genre, int duration,
-                 String language, String subtitle, String posterImage, String director,
-                 String synopsis, Timestamp releaseDate, Timestamp createdAt, Timestamp updatedAt) {
+    public Movie(int movieId, String title, String genre, int duration, String language, String subtitle, String posterImage, String trailerLink, String director, String synopsis, Timestamp releaseDate, Timestamp createdAt, Timestamp updatedAt) {
         this.movieId = movieId;
         this.title = title;
         this.genre = genre;
@@ -41,6 +40,7 @@ public class Movie {
         this.language = language;
         this.subtitle = subtitle;
         this.posterImage = posterImage;
+        this.trailerLink = trailerLink;
         this.director = director;
         this.synopsis = synopsis;
         this.releaseDate = releaseDate;
@@ -104,6 +104,14 @@ public class Movie {
         this.posterImage = posterImage;
     }
 
+    public String getTrailerLink() {
+        return trailerLink;
+    }
+
+    public void setTrailerLink(String trailerLink) {
+        this.trailerLink = trailerLink;
+    }
+
     public String getDirector() {
         return director;
     }
@@ -154,6 +162,7 @@ public class Movie {
                 ", language='" + language + '\'' +
                 ", subtitle='" + subtitle + '\'' +
                 ", posterImage='" + posterImage + '\'' +
+                ", trailerLink='" + trailerLink + '\'' +
                 ", director='" + director + '\'' +
                 ", synopsis='" + synopsis + '\'' +
                 ", releaseDate=" + releaseDate +
@@ -161,7 +170,4 @@ public class Movie {
                 ", updatedAt=" + updatedAt +
                 '}';
     }
-
-
-
 }

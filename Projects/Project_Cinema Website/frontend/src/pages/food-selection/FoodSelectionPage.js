@@ -1,61 +1,88 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import DarkNav from '../../components/DarkNav';
-import BlackFooter from '../../components/BlackFooter';
+import CategoryTabList from './CategoryTabList';
+import CategoryTabPane from './CategoryTabPane';
+import ItemSelectedPane from '../../components/ItemSelectedPane';
 
-import FoodSelected from "./FoodSelected";
-// import MovieInfo from "./MovieInfo";
-import FoodOptions from "./FoodOptions";
 import FoodService from '../../services/FoodService';
-
-function FoodSelection() {
-
-    const state = useLocation().state;
-    const showtime = state.showtime;
-    const selectedSeats = state.selectedSeats;
-
-    let [foods, setFoods] = useState([]);
-    let [categories, setCategories] = useState([]);
-    let [foodsChosen, setFoodsChosen] = useState([]);
+import { useFood } from '../../hooks/useFood';
+import MovieInfo from '../../components/MovieInfo';
 
 
-    // Function to update categories based on foods
-    const updateCategories = (foods) => {
-        const newCategories = [...new Set(foods.map(food => food.category))];
-        setCategories(newCategories);
-    };
+function FoodSelectionPage() {
 
-    // Fetch foods from the API
-    const fetchFoods = async () => {
-        try {
-            const foods = await FoodService.getAllFoods();
-            setFoods(foods);
-            updateCategories(foods); // Update categories after fetching foods
-        } catch (error) {
-            console.error('Error fetching foods:', error);
-        }
-    };
+    const navigate = useNavigate();
+    const showtime = useLocation().state.showtime;
+    const selectedSeats = useLocation().state.selectedSeats;
+
+    const { foods, fetchFoods, loading, error } = useFood();
+    const [categories, setCategories] = useState([]);
+    const [selectedFood, setSelectedFood] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+
 
     useEffect(() => {
-        window.scrollTo(0, 0);
         fetchFoods();
-    }, []); // Separate useEffect for fetching foods
+    }, [fetchFoods]);
+
+
+    useEffect(() => {
+        setCategories([...new Set(foods.map(food => food.category))]);
+    }, [foods]);
+
+
+    useEffect(() => {
+        const totalPrice = selectedFood.reduce((total, food) => total + parseFloat(food.price), 0).toFixed(2);
+        setTotalPrice(totalPrice);
+    }, [selectedFood]);
+
+
+    const buttonOnClick = (e) => {
+        e.preventDefault();
+
+        if ((showtime === null) || !(selectedSeats.length > 0)) {
+            alert('error!!');
+            return;
+        }
+        navigate('/secret/payment-page', {
+            state: {
+                showtime: showtime,
+                selectedSeats: selectedSeats,
+                selectedFood: selectedFood
+            }
+        });
+    }
+
 
     return (
-        <div style={{ backgroundColor: 'black' }} className="FoodSelection">
-            <FoodSelected
-                showtime={showtime}
-                selectedSeats={selectedSeats}
-                foodsChosen={foodsChosen}
+        <div className="py-5 ">
+            <MovieInfo showtime={showtime} />
+
+            <ItemSelectedPane
+                title={"Food Selection"}
+                itemsDesc={(selectedFood.length > 0) ? `${selectedFood.length} items` : '- Please Select Food -'}
+                buttonTitle={`Confirm - RM ${totalPrice} `}
+                buttonOnClick={buttonOnClick}
             />
-            <FoodOptions
-                foods={foods}
-                categories={categories}
-                foodsChosen={foodsChosen}
-                setFoodsChosen={setFoodsChosen} />
+
+            <section className=" px-0 py-5 fs-6">
+                {/* <CategoryTabList categories={categories} /> */}
+                {/* <div className="fs-1 fw-bold mb-3">Movies</div> */}
+
+                {categories.map((category, categoryIndex) => {
+                    return (
+                        <CategoryTabPane
+                            key={categoryIndex}
+                            filteredFoods={foods?.filter(food => food.category === category)}
+                            category={category}
+                            selectedFood={selectedFood}
+                            setSelectedFood={setSelectedFood} />
+                    )
+                })}
+            </section>
         </div>
     );
 }
 
-export default FoodSelection;
+export default FoodSelectionPage;

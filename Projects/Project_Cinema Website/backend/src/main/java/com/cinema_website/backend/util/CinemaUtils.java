@@ -19,6 +19,7 @@ public class CinemaUtils {
         cinemaDTO.setCinemaId(cinema.getCinemaId());
         cinemaDTO.setName(cinema.getName());
         cinemaDTO.setAddress(cinema.getAddress());
+        cinemaDTO.setLocationLink(cinema.getLocationLink());
         cinemaDTO.setCity(cinema.getCity());
         cinemaDTO.setCinemaImage(cinema.getCinemaImage());
         cinemaDTO.setContactNo(cinema.getContactNo());
@@ -40,6 +41,7 @@ public class CinemaUtils {
         cinema.setCinemaId(cinemaDTO.getCinemaId());
         cinema.setName(cinemaDTO.getName());
         cinema.setAddress(cinemaDTO.getAddress());
+        cinema.setLocationLink(cinemaDTO.getLocationLink());
         cinema.setCity(cinemaDTO.getCity());
         cinema.setCinemaImage(cinemaDTO.getCinemaImage());
         cinema.setContactNo(cinemaDTO.getContactNo());

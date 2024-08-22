@@ -3,101 +3,92 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import './Movies.css'
 
-//
-import MovieService from '../../services/MovieService';
+import { useMovie } from '../../hooks/useMovie';
 
-//
-function Movies(props) {
+function Movies({ stateMovieId, setStateMovieId, setOptionState, setOptionSelected }) {
 
-    let [movies, setMovies] = useState([]);
-    let [activeIndex, setActiveIndex] = useState(-1); //
+    const { movies, loading, error } = useMovie();
+    const [activeIndex, setActiveIndex] = useState(-1);
 
-
-
-    useEffect(() => {
-        fetchMovies();
-    }, []);
-
-
-    // get index depends on movieId
     useEffect(() => {
         if (movies.length > 0) {
-            const index = movies.findIndex(movie => movie.movieId === props.movieId);
+            console.log('haha', stateMovieId);
+            const index = movies.findIndex(movie => movie.movieId === stateMovieId);
             if (index !== -1) {
+                console.log(index);
                 setActiveIndex(index);
-                props.setMovieSelected(movies[index]);
-                props.setMovieId(movies[index].movieId)
+                setOptionState(prevState => ({
+                    ...prevState,
+                    movieSelected: movies[index]
+                }));
+                setStateMovieId(movies[index].movieId);
             }
         }
-    }, [movies, props.movieId]);
+    }, [movies, stateMovieId]);
 
 
-    // [] -> [...movies]
-    const fetchMovies = () => {
-        MovieService.getAllMovies().then(movieList => {
-            setMovies(movieList); // Update state with fetched movieList
-        }).catch(error => {
-            console.error('Error fetching movies:', error);
-        });
-    };
+    console.log('aa', activeIndex);
 
+    return (
+        <>
+            {loading && <div >Loading...</div>}
+            {error ? (
+                <div >Error: {error}</div>
+            ) : (
+                <div className="movies my-5">
+                    <div className="container">
+                        <div className="fs-1 fw-bold text-dark mb-3">Movies</div>
+                        <div className='' style={{ aspectRatio: '3/1' }}>
+                            <Swiper
+                                className="mySwiper p-0"
+                                effect="coverflow"
+                                grabCursor={true}
+                                centeredSlides={true}
+                                slidesPerView="auto"
+                                coverflowEffect={{
+                                    rotate: 50,
+                                    stretch: 0,
+                                    depth: 100,
+                                    modifier: 1,
+                                    slideShadows: true
+                                }}
+                                pagination={{ el: '.swiper-pagination' }}
+                                initialSlide={+activeIndex}
+                                onSlideChange={(swiper) => {
+                                    setActiveIndex(swiper.activeIndex);
+                                    setOptionState(prevState => ({
+                                        ...prevState,
+                                        movieSelected: movies[swiper.activeIndex],
+                                        dateSelected: '',
+                                        expSelected: ''
+                                    }));
 
+                                    setOptionSelected(prevState => ({
+                                        ...prevState,
+                                        dateOptionSelected: '',
+                                        expOptionSelected: ''
+                                    }));
 
-
-
-
-    if ((movies.length > 0) && (activeIndex !== -1)) {
-
-        return (
-            <div className="Movies">
-                <span className='me-5'>current movie id:{movies[activeIndex].movieId}</span>
-                <span>current movie index:{activeIndex}</span>
-
-                <section style={{ height: '500px', backgroundColor: 'black' }}>
-                    <div className="container ">
-                        <div className="fs-1 fw-bold text-white">Movies</div>
-
-                        <Swiper
-                            className="mySwiper"
-
-                            effect="coverflow"
-                            grabCursor={true}
-                            centeredSlides={true}
-                            slidesPerView="auto"
-                            coverflowEffect={{
-                                rotate: 50,
-                                stretch: 0,
-                                depth: 100,
-                                modifier: 1,
-                                slideShadows: true
-                            }}
-                            pagination={{ el: '.swiper-pagination' }}
-                            initialSlide={activeIndex} // put index
-                            onSlideChange={(swiper) => {
-                                setActiveIndex(swiper.activeIndex);
-                                props.setMovieSelected(movies[swiper.activeIndex]);
-                                props.setMovieId(movies[swiper.activeIndex].movieId);
-                                props.setDateSelected([]); // prevent date error
-                                props.setExpSelected(''); // prevent date error
-                            }}
-                        >
-                            {movies.map((movie, index) => (
-                                <SwiperSlide key={index}>
-                                    <img src={movie.posterImage} alt={movie.title} />
-                                    <div className='text-white'>{`movieId=${movie.movieId}`}</div>
-                                </SwiperSlide>
-                            ))}
-
-
-                        </Swiper>
-
-
+                                    setStateMovieId(movies[swiper.activeIndex].movieId);
+                                }}
+                            >
+                                {movies.map((movie, index) => (
+                                    <SwiperSlide key={index} >
+                                        <div className='border border-2 border-dark ' >
+                                            <img src={movie.posterImage} alt={movie.title} />
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div>
                     </div>
-                </section>
-            </div>
-        );
-    }
 
+                </div>
+            )}
+
+        </>
+
+    );
 
 }
 
