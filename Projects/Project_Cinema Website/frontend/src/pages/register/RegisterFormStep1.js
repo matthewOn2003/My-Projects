@@ -82,18 +82,18 @@ function RegisterFormStep1({ title, setStep, formState, setFormState }) {
     useEffect(() => {
         if (otp > 0) {
             console.log(otp);
-            // emailjs
-            //     .sendForm('service_tmg683g', 'template_ddtef7s', form.current, {
-            //         publicKey: 'l_JaqwYLm4fsMV7-E',
-            //     })
-            //     .then(
-            //         () => {
-            //             console.log('SUCCESS!');
-            //         },
-            //         (error) => {
-            //             console.log('FAILED...', error.text);
-            //         },
-            //     );
+            emailjs
+                .sendForm('service_tmg683g', 'template_ddtef7s', form.current, {
+                    publicKey: 'l_JaqwYLm4fsMV7-E',
+                })
+                .then(
+                    () => {
+                        console.log('SUCCESS!');
+                    },
+                    (error) => {
+                        console.log('FAILED...', error.text);
+                    },
+                );
         }
     }, [otp]);
 

@@ -5,6 +5,7 @@ import Button from '../../components/Button';
 import InputFields from '../../components/InputFields';
 
 function LoginForm({ title, formState, setFormState }) {
+
     const { login } = useAuth();
     const [hints, setHints] = useState({
         username: { showHint: false, formatHint: '' },
